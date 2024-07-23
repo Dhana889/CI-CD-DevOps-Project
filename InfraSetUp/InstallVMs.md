@@ -34,6 +34,8 @@ Optionally, add tags to your instance for better organization and management.
 Click "Next: Configure Security Group".
 Configure Security Group:
 
+![image](https://github.com/user-attachments/assets/e7218d3d-cc9f-4856-959f-f24f6daef112)
+
 In the "Step 6: Configure Security Group" section, configure the security group to allow SSH access (port 22) from your IP address.
 You may also want to allow other ports based on your requirements (e.g., HTTP, HTTPS) as in this pic Alt text
 Click "Review and Launch".
