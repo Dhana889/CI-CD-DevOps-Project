@@ -1,16 +1,16 @@
 FROM maven:3.9.0-eclipse-temurin-17 as build
 
-ENV APP_HOME /usr/src/app
+WORKDIR /app
 
-WORKDIR $APP_HOME
+COPY src /app
 
-COPY src .
+COPY pom.xml /app
 
-RUN mvn clean package
+RUN mvn -f /app/pom.xml clean package
 
 FROM eclipse-temurin:17-jdk-alpine
 
-COPY --from=build target/*.jar $APP_HOME/app.jar
+COPY --from=build /app/target/*.jar /app/app.jar
 
 EXPOSE 8080
 
