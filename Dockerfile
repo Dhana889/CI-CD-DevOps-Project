@@ -2,9 +2,7 @@ FROM maven:3.9.0-eclipse-temurin-17 as build
 
 WORKDIR /app
 
-COPY src /app
-
-COPY pom.xml /app
+COPY . .
 
 RUN mvn -f /app/pom.xml clean package
 
