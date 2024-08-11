@@ -1,11 +1,11 @@
-FROM adoptopenjdk/openjdk17
+FROM adoptopenjdk/openjdk-17-jdk-alpine:latest
     
-EXPOSE 8080
- 
 ENV APP_HOME /usr/src/app
+
+WORKDIR $APP_HOME
 
 COPY target/*.jar $APP_HOME/app.jar
 
-WORKDIR $APP_HOME
+EXPOSE 8080
 
 CMD ["java", "-jar", "app.jar"]
