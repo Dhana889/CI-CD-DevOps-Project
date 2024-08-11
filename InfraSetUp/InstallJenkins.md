@@ -21,6 +21,11 @@ sudo apt-get update
 
 # Install Jenkins
 sudo apt-get install jenkins -y
+
+sudo systemctl start jenkins
+
+sudo systemctl status jenkins
+
 ```
 
 Save this script in a file, for example, `install_jenkins.sh`, and make it executable using:
