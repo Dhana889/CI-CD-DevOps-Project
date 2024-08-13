@@ -98,7 +98,27 @@ sudo apt-get install trivy -y
 ```
 ## Install Owasp Dependency Check for vulnerability scanner
 
+Import the GPG key used to sign all Dependency Check releases
 ```bash
-VERSION=$(curl -s https://jeremylong.github.io/DependencyCheck/current.txt)
-curl -Ls "https://github.com/jeremylong/DependencyCheck/releases/download/v$VERSION/dependency-check-$VERSION-release.zip" --output dependency-check.zip
+sudo gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 259A55407DD6C00299E6607EFFDE55BE73A2D1ED
+```
+Download the dependency-check command line tool
+```bash
+wget https://github.com/jeremylong/DependencyCheck/releases/download/v10.0.3/dependency-check-10.0.3-release.zip
+```
+Download associated GPG signature file
+```bash
+wget https://github.com/jeremylong/DependencyCheck/releases/download/v10.0.3/dependency-check-10.0.3-release.zip.asc
+```
+Verify the cryptographic integrity of your download
+```bash
+gpg --verify dependency-check-10.0.3-release.zip.asc
+```
+sudo unzip dependency-check-<latest-version>.zip -d /opt/
+export PATH=$PATH:/opt/dependency-check/bin
+Run source ~/.bashrc to apply the changes
 
+Verity the Installation
+```bash
+dependency-check.sh --help
+```
