@@ -96,3 +96,9 @@ echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.
 sudo apt-get update
 sudo apt-get install trivy -y
 ```
+## Install Owasp Dependency Check for vulnerability scanner
+
+```bash
+VERSION=$(curl -s https://jeremylong.github.io/DependencyCheck/current.txt)
+curl -Ls "https://github.com/jeremylong/DependencyCheck/releases/download/v$VERSION/dependency-check-$VERSION-release.zip" --output dependency-check.zip
+
